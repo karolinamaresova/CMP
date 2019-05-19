@@ -1,0 +1,17 @@
+ul {
+    list-style-type: none;
+    color: blueviolet;
+}
+
+.book-info {
+    border: solid 1px black;
+}
+
+.book-info thead th {
+    border: solid 1px black;
+}
+
+.book-info tbody td {
+    border: solid 1px black;
+    text-align: center;
+}
