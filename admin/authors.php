@@ -34,13 +34,16 @@ include_once __DIR__ . DIRECTORY_SEPARATOR . "inc" . DIRECTORY_SEPARATOR . "head
     </thead>
     <tbody>
       <?php
-$sql = $mysqli->prepare("
+$sql = $mysqli->prepare("SELECT b.id_book, b.name, b.ISBN, a.firstname, a.surname 
+FROM books b
+JOIN books_authors ba ON b.id_book = ba.id_book
+JOIN authors a ON ba.id_author = a.id_author"
 );
 $sql->execute();
 $result = $sql->get_result();
 while ($author = $result->fetch_assoc()) { ?>
 
-  <a href="edit_author.php?idAuthor=<?php echo $author['id_author'];?>">  
+  <a href="edit_author.php?idAuthor=<?php echo $author['id_author'];?>">   
 
 
 
@@ -57,7 +60,7 @@ while ($author = $result->fetch_assoc()) { ?>
           </td>
           
           <td>
-            <a href="edit_book.php?idBook=<?= $book['id_book'] ?>" class="btn btn-primary">Upravit knihu</a>
+            <a href="edit_book.php?idBook=<?= $book['id_book'] ?>" class="btn btn-primary">Upravit autora</a>
           </td>
         </tr>
 
