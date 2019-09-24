@@ -23,14 +23,16 @@ $submit = filter_input(INPUT_POST, 'registrationSubmit');
 
 if (!empty($submit)) {
     echo "Formulář byl odeslán";
-    $email = filter_input(INPUT_POST, 'email');
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $name = filter_input(INPUT_POST, 'name');
     $password = filter_input(INPUT_POST, 'password');
+    $role = filter_input(INPUT_POST,'role');
+    
 
 
 
-    $salt = 'jbakbdaisbdoisaiabdsě+abo!';
-    $hashedPassword = md5($password . $salt);
+    define ('SALT', 'jbakbdaisbdoisaiabdsě+abo!');
+    $hashedPassword = md5($password . SALT);
 
 
     $sqlI = $mysqli->prepare("
@@ -46,6 +48,7 @@ if (!empty($submit)) {
 <form method="post" action="registration.php">
       <input type="text" id="email" class="fadeIn second " name="email" placeholder="email">
       <input type="text" id="name" class="fadeIn third" name="name" placeholder="name">
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
       <input type="submit" class="fadeIn fourth" name="registrationSubmit" value="Reg">
     </form>
