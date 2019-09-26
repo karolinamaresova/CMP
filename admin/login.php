@@ -28,8 +28,7 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR .   "inc
           define('SALT', 'jbakbdaisbdoisaiabdsě+abo!');
           $hashedPassword = md5($password . SALT);
 
-          $sql1 = $mysqli->prepare("
-       SELECT email, password FROM users
+          $sql1 = $mysqli->prepare(" SELECT email, password FROM users
        WHERE email LIKE ? AND password LIKE ?;
         ");
           $sql1->bind_param('ss', $email, $hashedPassword);
@@ -38,12 +37,12 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . ".." . DIRECTORY_SEPARATOR .   "inc
           $result = $sql1->get_result();
           $user = $result->fetch_assoc();
 
-          var_dump($email);
+          var_dump($password);
 
           if (($email == $user['email']) && ($hashedPassword == $user['password'])) {
               $_SESSION['login'] = $email;
              
-              header('location: index.php ');
+              header('location: index.php');
           }
       }
 

@@ -74,6 +74,12 @@ require_once __DIR__ . DIRECTORY_SEPARATOR . ".."  . DIRECTORY_SEPARATOR . ".." 
               Výpis žánrů
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="listUsers.php">
+              <span data-feather="shopping-cart"></span>
+              Uživatelé
+            </a>
+          </li>
           
          
         </ul>

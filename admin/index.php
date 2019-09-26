@@ -63,6 +63,7 @@ while ($book = $result->fetch_assoc()) { ?>
           <td>
             <?php echo $book['ISBN'] ?>
           </td>
+          
           <td>
             <a href="edit_book.php?idBook=<?= $book['id_book'] ?>" class="btn btn-primary">Upravit knihu</a>
           </td>

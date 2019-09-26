@@ -49,7 +49,7 @@ if (!empty($submit)) {
       <input type="text" id="email" class="fadeIn second " name="email" placeholder="email">
       <input type="text" id="name" class="fadeIn third" name="name" placeholder="name">
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
-      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+      
       <input type="submit" class="fadeIn fourth" name="registrationSubmit" value="Reg">
     </form>
 
